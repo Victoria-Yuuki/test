@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday 🎂</title>
+
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background: linear-gradient(135deg,#ff5fa2,#ffc371,#6a89ff);
+      background-size:400% 400%;
+      animation:bg 10s ease infinite;
+      overflow-x:hidden;
+      color:white;
+      text-align:center;
+    }
+
+    @keyframes bg{
+      0%{background-position:0% 50%;}
+      50%{background-position:100% 50%;}
+      100%{background-position:0% 50%;}
+    }
+
+    .container{
+      width:100%;
+      min-height:100vh;
+      padding:40px 20px;
+    }
+
+    h1{
+      font-size:65px;
+      margin-top:30px;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow{
+      from{
+        text-shadow:0 0 10px #fff,
+                    0 0 20px #ff4da6,
+                    0 0 30px #ff4da6;
+      }
+      to{
+        text-shadow:0 0 20px #fff,
+                    0 0 40px #ffd700,
+                    0 0 60px #ffd700;
+      }
+    }
+
+    .typing{
+      font-size:25px;
+      margin-top:20px;
+      white-space:nowrap;
+      overflow:hidden;
+      border-right:3px solid white;
+      width:0;
+      animation:typing 5s steps(40,end) forwards,
+                blink .7s infinite;
+      margin-inline:auto;
+    }
+
+    @keyframes typing{
+      from{width:0}
+      to{width:100%}
+    }
+
+    @keyframes blink{
+      50%{border-color:transparent}
+    }
+
+    .hero-img{
+      width:300px;
+      border-radius:30px;
+      margin-top:40px;
+      box-shadow:0 10px 30px rgba(0,0,0,.4);
+      animation:float 4s ease-in-out infinite;
+    }
+
+    @keyframes float{
+      0%{transform:translateY(0px);}
+      50%{transform:translateY(-20px);}
+      100%{transform:translateY(0px);}
+    }
+
+    .card{
+      margin-top:50px;
+      background:rgba(255,255,255,.15);
+      padding:30px;
+      border-radius:25px;
+      backdrop-filter:blur(10px);
+      box-shadow:0 10px 25px rgba(0,0,0,.3);
+      max-width:850px;
+      margin-inline:auto;
+    }
+
+    .card h2{
+      font-size:38px;
+      margin-bottom:20px;
+    }
+
+    .card p{
+      font-size:20px;
+      line-height:2;
+    }
+
+    .gallery{
+      margin-top:70px;
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:25px;
+    }
+
+    .gallery img{
+      width:250px;
+      height:250px;
+      object-fit:cover;
+      border-radius:25px;
+      transition:.4s;
+      box-shadow:0 10px 20px rgba(0,0,0,.3);
+    }
+
+    .gallery img:hover{
+      transform:scale(1.08) rotate(3deg);
+    }
+
+    .wish-section{
+      margin-top:80px;
+    }
+
+    .wish-box{
+      background:rgba(255,255,255,.12);
+      margin:20px auto;
+      padding:25px;
+      border-radius:20px;
+      width:80%;
+      max-width:700px;
+      transition:.4s;
+    }
+
+    .wish-box:hover{
+      transform:translateY(-10px);
+      background:rgba(255,255,255,.2);
+    }
+
+    .wish-box h3{
+      font-size:30px;
+      margin-bottom:10px;
+    }
+
+    .wish-box p{
+      font-size:18px;
+      line-height:1.8;
+    }
+
+    .btn{
+      margin-top:50px;
+      display:inline-block;
+      padding:18px 40px;
+      background:white;
+      color:#ff1493;
+      border-radius:50px;
+      font-size:22px;
+      font-weight:bold;
+      text-decoration:none;
+      transition:.3s;
+    }
+
+    .btn:hover{
+      transform:scale(1.1);
+      background:#ffd700;
+      color:black;
+    }
+
+    footer{
+      margin-top:80px;
+      padding:25px;
+      font-size:18px;
+    }
+
+    /* BALON */
+    .balloon{
+      position:absolute;
+      bottom:-150px;
+      width:80px;
+      animation:rise 12s infinite ease-in;
+      opacity:.8;
+    }
+
+    @keyframes rise{
+      0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+      }
+      20%{
+        opacity:1;
+      }
+      100%{
+        transform:translateY(-1200px) rotate(360deg);
+        opacity:0;
+      }
+    }
+
+    .b1{left:5%; animation-duration:10s;}
+    .b2{left:20%; animation-duration:12s;}
+    .b3{left:40%; animation-duration:15s;}
+    .b4{left:60%; animation-duration:11s;}
+    .b5{left:80%; animation-duration:13s;}
+
+    /* CONFETTI */
+    .confetti{
+      position:fixed;
+      width:10px;
+      height:10px;
+      background:white;
+      top:-10px;
+      animation:fall linear infinite;
+    }
+
+    @keyframes fall{
+      to{
+        transform:translateY(120vh) rotate(720deg);
+      }
+    }
+
+    @media(max-width:768px){
+      h1{
+        font-size:45px;
+      }
+
+      .typing{
+        font-size:18px;
+      }
+
+      .hero-img{
+        width:90%;
+      }
+
+      .gallery img{
+        width:90%;
+        height:auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BALON -->
+  <img class="balloon b1" src="https://cdn-icons-png.flaticon.com/512/3468/3468373.png">
+  <img class="balloon b2" src="https://cdn-icons-png.flaticon.com/512/3468/3468373.png">
+  <img class="balloon b3" src="https://cdn-icons-png.flaticon.com/512/3468/3468373.png">
+  <img class="balloon b4" src="https://cdn-icons-png.flaticon.com/512/3468/3468373.png">
+  <img class="balloon b5" src="https://cdn-icons-png.flaticon.com/512/3468/3468373.png">
+
+  <!-- CONFETTI -->
+  <script>
+    for(let i=0;i<120;i++){
+      let conf=document.createElement("div");
+      conf.className="confetti";
+      conf.style.left=Math.random()*100+"vw";
+      conf.style.animationDuration=(Math.random()*3+2)+"s";
+      conf.style.opacity=Math.random();
+      conf.style.background=`hsl(${Math.random()*360},100%,50%)`;
+      conf.style.width=conf.style.height=Math.random()*10+5+"px";
+      document.body.appendChild(conf);
+    }
+  </script>
+
+  <div class="container">
+
+    <h1>🎂 HAPPY BIRTHDAY 🎂</h1>
+
+    <div class="typing">
+      Semoga hari kamu penuh kebahagiaan, cinta, dan tawa ✨
+    </div>
+
+    <!-- FOTO UTAMA -->
+    <img class="hero-img"
+      src="https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=1200&auto=format&fit=crop"
+      alt="Birthday">
+
+    <!-- KARTU UCAPAN -->
+    <div class="card">
+      <h2>💖 For beautiful sister 💖</h2>
+
+      <p>
+        Selamat ulang tahun yaa 🥳<br><br>
+
+        Semoga panjang umur, sehat selalu,
+        dimudahkan semua urusannya,
+        dilancarkan rezekinya,
+        dan semua impiannya bisa tercapai 💕<br><br>
+
+        Jangan pernah berhenti jadi orang baik,
+        karena dunia butuh lebih banyak orang seperti kamu 🌸
+      </p>
+    </div>
+
+    <!-- GALLERY -->
+    <div class="gallery">
+
+      <img src="WhatsApp Image 2026-05-08 at 19.12.38">
+
+      <img src="WhatsApp Image 2026-05-08 at 19.12.35">
+
+      <img src="WhatsApp Image 2026-05-08 at 19.14.55">
+
+    </div>
+
+    <!-- UCAPAN -->
+    <div class="wish-section">
+
+      <div class="wish-box">
+        <h3>🌈 Tetap Bahagia</h3>
+        <p>
+          Semoga setiap harimu selalu dipenuhi tawa,
+          kebahagiaan, dan orang-orang baik di sekitarmu.
+        </p>
+      </div>
+
+      <div class="wish-box">
+        <h3>⭐ Tetap Bersinar</h3>
+        <p>
+          Jangan pernah meragukan dirimu sendiri,
+          karena kamu lebih hebat dari yang kamu kira.
+        </p>
+      </div>
+
+      <div class="wish-box">
+        <h3>🎁 Semua Impian Tercapai</h3>
+        <p>
+          Semoga tahun ini menjadi awal dari banyak hal indah
+          yang akan datang dalam hidupmu.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- TOMBOL -->
+    <a href="#" class="btn"
+      onclick="alert('Happy Birthday kaka nabila🎉 Semoga panjang umur dan bahagia selalu 💖')">
+      Klik Surprise 🎊
+    </a>
+
+    <!-- AUDIO -->
+    <div style="margin-top:60px;">
+
+      <h2>🎵 Lagu Ulang Tahun 🎵</h2><br>
+
+      <audio controls autoplay loop>
+        <source src="lagu.mp3" type="audio/mpeg">
+      </audio>
+
+    </div>
+
+    <footer>
+      Made with ❤️ for beautiful sister  
+  </footer>
+
+  </div>
+
+</body>
+</html>
